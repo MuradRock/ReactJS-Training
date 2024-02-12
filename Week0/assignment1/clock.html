@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: blue;
+        }
+        #upperDiv {
+            text-align: center;
+            color: white;
+            height: 30%;
+            font-size: 100px;
+        }
+        #date {
+            text-align: center;
+           color: white;
+            height: 30%;
+            font-size: 100px;
+        }
+        #timer {
+            color: white;
+            text-align: center;
+           font-size: 215px;
+            height: 40%;
+        }
+        
+    </style>
+    <script>
+        var MonthArr=['Jan','Feb','Mar','Apr',
+            'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec' ];
+        window.onload = function () {
+            
+
+            var upperDiv = document.getElementById('upperDiv');
+            var dateDiv = document.getElementById('date');
+            var timerDiv = document.getElementById('timer');
+
+             setInterval(function(){
+                var currDate=new Date();
+                //timerDiv.innerHTML=new Date();
+                var ampm = currDate.getHours >= 12 ? 'pm' : 'am';
+                if(currDate.getHours()<12)
+                  upperDiv.innerHTML='Morning'
+                if(currDate.getHours()>12 && currDate.getHours()<19)
+                  upperDiv.innerHTML='Evening';
+                if( currDate.getHours()>19)
+                  upperDiv.innerHTML='Night';
+                timerDiv.innerHTML=formatAMPM(currDate)
+                let mon=currDate.getMonth()-1;
+                dateDiv.innerHTML=''+currDate.getDate()+' '+MonthArr[mon]+' '+currDate.getFullYear();
+                //console.log(new Date())
+             },1000);
+
+            function formatAMPM(date) {
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var ampm = hours >= 12 ? 'pm' : 'am';
+                hours = hours % 12;
+                hours = hours ? hours : 12; // the hour '0' should be '12'
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                var strTime = hours + ':' + minutes + ':' + date.getSeconds();
+                return strTime;
+            }
+            console.log(formatAMPM(new Date()));
+        }
+
+        // setInterval();
+    </script>
+</head>
+
+<body>
+    <div id="upperDiv">
+
+
+    </div>
+    <div id="timer">
+
+    </div>
+    <div id="date">
+
+    </div>
+</body>
+
+</html>
