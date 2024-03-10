@@ -1,0 +1,33 @@
+.menu{
+    list-style-type: none;
+    font-size: 150;
+    color: blueviolet;
+    background-color: brown;
+}
+ul li a{
+    text-decoration: none;
+    color: beige;
+    
+}
+li{
+    display: inline-block;
+    margin-left: 30px;
+   
+}
+
+.CartHeader{
+    text-align: center;
+    font-size: 50px;
+    color: beige;
+    background-color: cornflowerblue;
+}
+table td{
+    border: 1px cornflowerblue solid ;
+}
+table th{
+    color: brown;
+}
+
+Button{
+    border-radius: 20%;
+}
